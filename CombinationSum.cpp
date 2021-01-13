@@ -29,3 +29,12 @@ void printsums(int k,int total,vector<int>v,unordered_set<string>visited,int j){
     }
     visited.insert(key);
 }
+void getDivingLen(int k,int total,int shortLen,int longLen){
+    if(k==0){
+        cout<<total<<endl;
+        return;
+    }
+    getDivingLen(k-1,total+shortLen,shortLen,longLen);
+    getDivingLen(k-1,total+longLen,shortLen,longLen);
+}
+//cache this if you want memoization by using set<string>visited
